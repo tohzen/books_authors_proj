@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        </style>
+    <title>Books & Authors</title>
+</head>
+<body>
+    
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Actions</th>
+        </tr>
+        {% for show in allshows %}
+        <tr>
+            <td>{{show.id}}</td>
+            <td>{{show.title}}</td>
+            <td> <a href="/shows/{{show.id}}">View More</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <h2>Add a New Show</h2>
+    <form action="/addshow" method="post">
+        {% csrf_token %}
+        <p>Title: <input type="text" name="title" id=""></p>
+        <p>Network: <input type="text" name="network" id=""></p>
+        <p><input type="submit" value="Add" id=""></p>
+    </form>
+
+
+
+</body>
+</html>

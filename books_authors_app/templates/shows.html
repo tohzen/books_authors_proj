@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Shows</title>
+</head>
+<body>
+    <h1>hi im a book my name is: {{selectedshow.title}}</h1>
+    <p>Id: {{selectedshow.id}}</p>
+    <p>Description: {{selectedshow.network}}</p>
+
+    <ul>
+    {% for show in selectedshow.title.all %}
+        <li>{{show.title}} {{show.network}}</li>
+    {% endfor %}
+    </ul>
+    <form action="" method="post">
+        {% csrf_token %}
+        <select name="" id="">
+            <option value="">{{show.title}}</option>
+            <option value="">{{show.network}}</option>
+            {% for show in shows %}
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+
+    </form>
+
+</body>
+</html>

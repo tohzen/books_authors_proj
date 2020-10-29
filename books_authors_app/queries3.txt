@@ -1,0 +1,53 @@
+ClassName.objects.create(field1="value for field1", field2="value for field2", etc.)
+
+Show.objects.create(title ="Stranger Things", network = "Netflix" )
+Show.objects.create(title ="Brooklyn Nine-Nine", network = "NBC" )
+Show.objects.create(title ="Game of Thrones", network = "HBO" )
+Show.objects.create(title ="Pushing Daisies", network = "ABC" )
+Show.objects.create(title ="Parks and Recreation", network = "NBC" )
+
+Author.objects.create(first_name = "Jane", last_name = "Austen")
+Author.objects.create(first_name = "Emily", last_name = "Dickenson")
+Author.objects.create(first_name = "Fyodor", last_name = "Dostoevsky")
+Author.objects.create(first_name = "William", last_name = "Shakespeare")
+Author.objects.create(first_name = "Lau", last_name = "Tzu")
+
+Book=Book.objects.get(id=1)
+Book.title="C#"
+Book.save()
+
+Author=Author.objects.get(id=4)
+Author.first_name= "Bill"
+Author.save()
+
+this_book=Book.objects.get(id=1)
+this_author= Author.objects.get(id=1)
+
+this_author=Author.Book.add(this_book)
+
+this_book=Book.objects.get(id=2)
+
+Author.objects.get(id=2).Book.add(Book.objects.get(id=1))
+Author.objects.get(id=2).Book.add(Book.objects.get(id=2))
+Author.objects.get(id=2).Book.add(Book.objects.get(id=3))
+
+Author.objects.get(id=3).Book.add(Book.objects.get(id=1))
+Author.objects.get(id=3).Book.add(Book.objects.get(id=2))
+Author.objects.get(id=3).Book.add(Book.objects.get(id=3))
+Author.objects.get(id=3).Book.add(Book.objects.get(id=4))
+
+Author.objects.get(id=4).Book.add(Book.objects.get(id=1))
+Author.objects.get(id=4).Book.add(Book.objects.get(id=2))
+Author.objects.get(id=4).Book.add(Book.objects.get(id=3))
+Author.objects.get(id=4).Book.add(Book.objects.get(id=4))
+Author.objects.get(id=4).Book.add(Book.objects.get(id=5))
+
+Book.objects.get(id=3).Book.all()
+
+Author.objects.get(id=3).authors.remove(Book.objects.get(id=1))
+
+Author.objects.get(id=5).Book.add(Book.objects.get(id=2))
+
+Author.objects.get(id=3).Book.all()
+
+Author.objects.get(id=3).Book.all(id=5)
